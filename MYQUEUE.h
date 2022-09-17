@@ -1,22 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+template <typename N>
 class Node
 {
 public:
-    int value;
+    N value;
     Node *Next;
-    Node(int val)
+    Node(N val)
     {
         this->value = val;
         this->Next = NULL;
     }
 };
 
+template <typename Q>
 class Queue
 {
-    Node *front;
-    Node *back;
+    Node<Q> *front;
+    Node<Q> *back;
 
 public:
     Queue()
@@ -26,9 +28,9 @@ public:
     }
 
     // Enqueue --> Push
-    void Push(int val)
+    void Push(Q val)
     {
-        Node *newNode = new Node(val);
+        Node<Q> *newNode = new Node<Q>(val);
         if (front == NULL)
         {
             front = newNode;
@@ -41,15 +43,15 @@ public:
     }
 
     // Dequeue --> Pop
-    int Pop()
+    Q Pop()
     {
-        int chk = -1;
+        Q chk;
         if (back == NULL)
         {
             cout << "Queue Underflow | There is no element in the queue" << endl;
             return chk;
         }
-        Node *delNode;
+        Node<Q> *delNode;
         delNode = front;
         front = front->Next;
         if (front == NULL)
@@ -62,16 +64,16 @@ public:
     }
 
     // Peek
-    int Front()
+    Q Front()
     {
-        int chk;
+        Q chk;
         chk = front->value;
         return chk;
     }
 
-    int Back()
+    Q Back()
     {
-        int chk;
+        Q chk;
         chk = back->value;
         return chk;
     }
