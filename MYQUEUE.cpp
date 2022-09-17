@@ -25,7 +25,7 @@ public:
         back = NULL;
     }
 
-    // Enqueue
+    // Enqueue --> Push
     void Push(int val)
     {
         Node *newNode = new Node(val);
@@ -38,6 +38,27 @@ public:
 
         back->Next = newNode;
         back = back->Next;
+    }
+
+    // Dequeue --> Pop
+    int Pop()
+    {
+        int chk = -1;
+        if (back == NULL)
+        {
+            cout << "Queue Underflow | There is no element in the queue" << endl;
+            return chk;
+        }
+        Node *delNode;
+        delNode = front;
+        front = front->Next;
+        if (front == NULL)
+        {
+            back == NULL;
+        }
+        chk = delNode->value;
+        delete delNode;
+        return chk;
     }
 };
 
