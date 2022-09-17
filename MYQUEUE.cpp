@@ -60,9 +60,29 @@ public:
         delete delNode;
         return chk;
     }
-};
 
-int main()
-{
-    return 0;
-}
+    // Peek
+    int Front()
+    {
+        int chk;
+        chk = front->value;
+        return chk;
+    }
+
+    int Back()
+    {
+        int chk;
+        chk = back->value;
+        return chk;
+    }
+
+    // Empty
+
+    bool Empty()
+    {
+        if (front == NULL && back == NULL)
+            return true;
+        else
+            false;
+    }
+};
