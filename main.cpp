@@ -1,35 +1,41 @@
 #include <bits/stdc++.h>
 #include "MYQUEUE.h"
 using namespace std;
+typedef pair<char, int> mytype;
 int main()
 {
-    Queue q;
+    Queue<mytype> q;
     int n;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
-        int chk;
-        cin >> chk;
-        q.Push(chk);
+        char c1;
+        int c2;
+        cin >> c1 >> c2;
+        q.Push(make_pair(c1, c2));
     }
 
-    while (!q.Empty())
-    {
-        cout << q.Pop() << " ";
-    }
-    cout << endl
-         << endl;
-
-    if (!q.Empty())
-    {
-        cout << q.Front() << endl
-             << endl;
-    }
+    // while (!q.Empty())
+    // {
+    //     mytype chk;
+    //     chk = q.Pop();
+    //     cout << chk.first << " | " << chk.second << endl;
+    // }
+    // cout << endl
+    //      << endl;
 
     if (!q.Empty())
     {
-        cout << q.Back() << endl
-             << endl;
+        mytype chk;
+        chk = q.Front();
+        cout << chk.first << " | " << chk.second << endl;
+    }
+
+    if (!q.Empty())
+    {
+        mytype chk;
+        chk = q.Back();
+        cout << chk.first << " | " << chk.second << endl;
     }
     return 0;
 }
